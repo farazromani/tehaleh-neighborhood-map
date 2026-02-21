@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tehaleh — Neighborhood Map</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <!-- Google Fonts: Zilla Slab (display) + Source Sans 3 (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ════════════════════════════════════
+       HEADER
+  ════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="brand-eyebrow">Bonney Lake, WA</span>
+        <h1 class="brand-title">Tehaleh</h1>
+      </div>
+      <p class="header-tagline">Explore the neighborhoods of Washington's premier master-planned community</p>
+    </div>
+    <!-- decorative topographic lines -->
+    <div class="header-topo" aria-hidden="true"></div>
+  </header>
+
+  <!-- ════════════════════════════════════
+       MAIN LAYOUT
+  ════════════════════════════════════ -->
+  <main class="layout">
+
+    <!-- ── Sidebar ────────────────────── -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-section sidebar-intro" id="sidebar-default">
+        <div class="compass-rose" aria-hidden="true">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="30,4 34,28 30,30 26,28" fill="currentColor" opacity="0.9"/>
+            <polygon points="30,56 34,32 30,30 26,32" fill="currentColor" opacity="0.4"/>
+            <polygon points="4,30 28,26 30,30 28,34" fill="currentColor" opacity="0.4"/>
+            <polygon points="56,30 32,26 30,30 32,34" fill="currentColor" opacity="0.4"/>
+            <circle cx="30" cy="30" r="3" fill="currentColor"/>
+            <text x="28" y="16" font-size="7" fill="currentColor" font-family="serif" font-weight="bold">N</text>
+          </svg>
+        </div>
+        <h2 class="sidebar-prompt">Click a neighborhood to explore</h2>
+        <p class="sidebar-hint">Each colored zone on the map represents a distinct neighborhood within Tehaleh. Hover to highlight, click to learn more.</p>
+        <div class="legend">
+          <h3 class="legend-title">Neighborhoods</h3>
+          <ul class="legend-list" id="legend-list">
+            <!-- populated by map.js -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- neighborhood detail panel (hidden until click) -->
+      <div class="sidebar-section sidebar-detail" id="sidebar-detail" hidden>
+        <button class="back-btn" id="back-btn" aria-label="Back to overview">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          All Neighborhoods
+        </button>
+
+        <div class="detail-color-bar" id="detail-color-bar"></div>
+
+        <h2 class="detail-name" id="detail-name"></h2>
+        <p class="detail-type" id="detail-type"></p>
+        <p class="detail-description" id="detail-description"></p>
+
+        <div class="detail-tags" id="detail-tags"></div>
+
+        <div class="detail-meta" id="detail-meta"></div>
+      </div>
+
+    </aside>
+
+    <!-- ── Map ───────────────────────── -->
+    <section class="map-wrap">
+      <div id="map"></div>
+      <div class="map-attribution-overlay">
+        <span>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer class="site-footer">
+    <p>Tehaleh is a master-planned community in unincorporated Pierce County, WA &mdash; developed by Newland.</p>
+    <p class="footer-note">Neighborhood boundaries are approximate. This is a community fan project, not affiliated with Newland or Tehaleh.</p>
+    <p class="footer-note">Found a mistake or missing neighborhood? <a class="footer-link" href="https://github.com/YOUR_USERNAME/tehaleh-map/issues/new" target="_blank" rel="noopener">Report an issue on GitHub</a></p>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+  <!-- Map logic -->
+  <script src="js/map.js"></script>
+
+</body>
+</html>

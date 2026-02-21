@@ -1,0 +1,643 @@
+/* ═══════════════════════════════════════════════════════════
+   TEHALEH NEIGHBORHOOD MAP — STYLESHEET
+   Aesthetic: Pacific Northwest / Topographic Trail Map
+   Fonts: Zilla Slab (display) + Source Sans 3 (body)
+═══════════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ───────────────────────────────────────── */
+:root {
+  /* Core palette — forest, stone, sky */
+  --color-forest:       #2d4a3e;
+  --color-forest-mid:   #3d6354;
+  --color-forest-light: #527a68;
+  --color-canopy:       #7aab90;
+  --color-canopy-pale:  #c2ddd2;
+  --color-stone:        #b5a48a;
+  --color-stone-light:  #e8e0d3;
+  --color-parchment:    #f5f0e8;
+  --color-cream:        #faf8f4;
+  --color-bark:         #6b4c32;
+  --color-sky:          #8fb8d0;
+  --color-sky-pale:     #d4eaf3;
+  --color-ink:          #1e2b24;
+  --color-ink-mid:      #3a4a42;
+  --color-ink-light:    #5c6e65;
+
+  /* Neighborhood accent colors */
+  --nbhd-1: #4e8b6e;   /* Glacier Pointe — forest green */
+  --nbhd-2: #6b9fb5;   /* Glacier Pointe Vista — sky blue */
+  --nbhd-3: #8a7fb5;   /* Trilogy — lavender sage */
+  --nbhd-4: #b57a4e;   /* Observation Ridge — warm clay */
+  --nbhd-5: #7aab5a;   /* Canyon View — meadow green */
+  --nbhd-6: #b5a04e;   /* Wesley — golden wheat */
+  --nbhd-7: #7a9e8a;   /* Core Neighborhood — sage */
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+
+  /* Typography */
+  --font-display: 'Zilla Slab', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Gill Sans', sans-serif;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(30, 43, 36, 0.12), 0 1px 4px rgba(30, 43, 36, 0.08);
+  --shadow-lifted: 0 8px 32px rgba(30, 43, 36, 0.18), 0 2px 8px rgba(30, 43, 36, 0.1);
+
+  /* Layout */
+  --header-height: 80px;
+  --footer-height: 60px;
+  --sidebar-width: 320px;
+}
+
+/* ── Reset & Base ────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-ink);
+  background: var(--color-parchment);
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-forest-mid);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--color-forest);
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.site-header {
+  position: relative;
+  height: var(--header-height);
+  background: var(--color-forest);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-xl);
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.brand-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-canopy);
+  line-height: 1;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-cream);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.header-tagline {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-canopy-pale);
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+  max-width: 400px;
+  line-height: 1.4;
+}
+
+/* Decorative topographic lines in header */
+.header-topo {
+  position: absolute;
+  right: -40px;
+  top: -20px;
+  width: 420px;
+  height: 140px;
+  opacity: 0.07;
+  background-image:
+    repeating-linear-gradient(
+      110deg,
+      transparent,
+      transparent 18px,
+      var(--color-canopy) 18px,
+      var(--color-canopy) 19px
+    ),
+    repeating-linear-gradient(
+      110deg,
+      transparent,
+      transparent 34px,
+      var(--color-canopy) 34px,
+      var(--color-canopy) 36px
+    );
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+/* ── Main Layout ─────────────────────────────────────────── */
+.layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--color-cream);
+  border-right: 1px solid var(--color-stone-light);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+  box-shadow: 2px 0 12px rgba(30, 43, 36, 0.08);
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-stone);
+  border-radius: 2px;
+}
+
+.sidebar-section {
+  padding: var(--space-lg) var(--space-lg);
+}
+
+/* ── Compass Rose ─────────────────────────────────────────── */
+.compass-rose {
+  width: 48px;
+  height: 48px;
+  color: var(--color-forest-light);
+  margin-bottom: var(--space-md);
+  opacity: 0.8;
+}
+
+/* ── Sidebar Default State ───────────────────────────────── */
+.sidebar-intro {
+  animation: fadeInUp 0.5s ease both;
+}
+
+.sidebar-prompt {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.3;
+  margin-bottom: var(--space-sm);
+}
+
+.sidebar-hint {
+  font-size: 13.5px;
+  color: var(--color-ink-light);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Legend ──────────────────────────────────────────────── */
+.legend {
+  border-top: 1px solid var(--color-stone-light);
+  padding-top: var(--space-md);
+}
+
+.legend-title {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-light);
+  margin-bottom: var(--space-sm);
+}
+
+.legend-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 6px var(--space-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.legend-item:hover {
+  background: var(--color-stone-light);
+}
+
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(0,0,0,0.12);
+}
+
+.legend-label {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-ink-mid);
+  line-height: 1.2;
+}
+
+/* ── Sidebar Detail Panel ────────────────────────────────── */
+.sidebar-detail {
+  animation: fadeInUp 0.35s ease both;
+}
+
+.sidebar-detail[hidden] {
+  display: none;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-forest-mid);
+  padding: 0;
+  margin-bottom: var(--space-lg);
+  transition: color 0.15s ease, gap 0.15s ease;
+}
+
+.back-btn:hover {
+  color: var(--color-forest);
+  gap: 4px;
+}
+
+.back-btn svg {
+  flex-shrink: 0;
+}
+
+.detail-color-bar {
+  height: 5px;
+  border-radius: 3px;
+  margin-bottom: var(--space-lg);
+  transition: background 0.3s ease;
+}
+
+.detail-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: var(--space-xs);
+}
+
+.detail-type {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-light);
+  margin-bottom: var(--space-md);
+}
+
+.detail-description {
+  font-size: 14px;
+  color: var(--color-ink-mid);
+  line-height: 1.65;
+  margin-bottom: var(--space-lg);
+}
+
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--color-stone-light);
+  color: var(--color-ink-mid);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  border-top: 1px solid var(--color-stone-light);
+  padding-top: var(--space-md);
+}
+
+.meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.meta-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-forest-light);
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-light);
+  min-width: 70px;
+}
+
+.meta-value {
+  font-size: 13.5px;
+  color: var(--color-ink-mid);
+}
+
+/* ── Map Wrapper ─────────────────────────────────────────── */
+.map-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Override Leaflet attribution (we have our own) */
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+.map-attribution-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  z-index: 500;
+  font-size: 10px;
+  color: var(--color-ink-light);
+  background: rgba(250, 248, 244, 0.85);
+  padding: 2px 8px;
+  border-radius: 3px;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.map-attribution-overlay a {
+  pointer-events: all;
+}
+
+/* Leaflet popup customization */
+.leaflet-popup-content-wrapper {
+  background: var(--color-cream);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lifted);
+  padding: 0;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  padding: var(--space-md) var(--space-lg);
+}
+
+.leaflet-popup-tip-container {
+  display: none;
+}
+
+.popup-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+
+.popup-hint {
+  font-size: 11px;
+  color: var(--color-ink-light);
+}
+
+/* Leaflet zoom controls */
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--color-cream) !important;
+  color: var(--color-forest) !important;
+  border-color: var(--color-stone-light) !important;
+  font-size: 16px !important;
+  font-weight: 300 !important;
+  transition: background 0.15s ease !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--color-stone-light) !important;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.site-footer {
+  background: var(--color-ink);
+  color: rgba(255,255,255,0.5);
+  font-size: 11.5px;
+  text-align: center;
+  padding: 10px var(--space-lg);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.4;
+}
+
+.footer-note {
+  color: rgba(255,255,255,0.3);
+  font-size: 10.5px;
+}
+
+.footer-link {
+  color: var(--color-canopy);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-canopy-pale);
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Mobile Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+    --sidebar-width: 100%;
+  }
+
+  html, body {
+    overflow: auto;
+  }
+
+  body {
+    flex-direction: column;
+  }
+
+  .site-header {
+    height: var(--header-height);
+    padding: 0 var(--space-md);
+  }
+
+  .header-inner {
+    gap: var(--space-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .header-tagline {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 22px;
+  }
+
+  .layout {
+    flex-direction: column;
+    overflow: auto;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid var(--color-stone-light);
+    box-shadow: 0 2px 12px rgba(30, 43, 36, 0.08);
+    overflow-y: auto;
+  }
+
+  .map-wrap {
+    height: 55vh;
+    flex: none;
+    position: relative;
+  }
+
+  #map {
+    position: relative;
+    height: 100%;
+  }
+
+  .map-wrap {
+    flex: none;
+  }
+
+  .site-footer {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    max-height: 45vh;
+  }
+
+  .map-wrap {
+    height: 50vh;
+  }
+}
+
+/* ── Utility ─────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
