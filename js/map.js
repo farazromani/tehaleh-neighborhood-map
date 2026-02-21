@@ -185,7 +185,6 @@ function highlightFeature(e) {
   const layer = e.target;
   if (layer === activeLayer) return;
   layer.setStyle({ fillOpacity: 0.58, weight: 2.5, color: '#ffffff' });
-  layer.bringToFront();
 }
 
 function resetHighlight(e) {
@@ -207,7 +206,6 @@ function onFeatureClick(e) {
 
   // Apply active style
   layer.setStyle(featureStyle(layer.feature, true));
-  layer.bringToFront();
   activeLayer = layer;
 
   // Smoothly fly the map to this neighborhood's bounds
@@ -308,6 +306,18 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+// Shoelace formula — returns the approximate area of a GeoJSON
+// polygon ring using its raw [lng, lat] coordinate pairs.
+// We only need relative size for sorting, so no projection needed.
+function polygonArea(coords) {
+  let area = 0;
+  const ring = coords[0]; // outer ring only
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    area += (ring[j][0] + ring[i][0]) * (ring[j][1] - ring[i][1]);
+  }
+  return Math.abs(area / 2);
+}
+
 // ── Load GeoJSON & Render ──────────────────────────────────
 fetch('./data/neighborhoods.geojson')
   .then(response => {
@@ -315,7 +325,18 @@ fetch('./data/neighborhoods.geojson')
     return response.json();
   })
   .then(data => {
-    geojsonLayer = L.geoJSON(data, {
+    // Sort features largest → smallest before rendering so that
+    // large polygons sit at the bottom of the layer stack and smaller
+    // neighborhoods (e.g. OG Mainvue inside Upper, New Upper inside
+    // Pinnacle Ridge) are rendered on top and receive click events first.
+    const sorted = {
+      ...data,
+      features: [...data.features].sort((a, b) =>
+        polygonArea(b.geometry.coordinates) - polygonArea(a.geometry.coordinates)
+      ),
+    };
+
+    geojsonLayer = L.geoJSON(sorted, {
       style: defaultStyle,
       onEachFeature: (feature, layer) => {
         const name     = feature.properties.name;
