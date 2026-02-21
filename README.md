@@ -2,7 +2,7 @@
 
 An interactive web map of the [Tehaleh](https://www.tehaleh.com/) master-planned community in Bonney Lake, WA. Click any neighborhood polygon to see its name and details.
 
-> **Live site:** `https://farazromani.github.io/tehaleh-neighborhood-map/`
+**Live site:** [https://farazromani.github.io/tehaleh-neighborhood-map](https://farazromani.github.io/tehaleh-neighborhood-map)
 
 ---
 
