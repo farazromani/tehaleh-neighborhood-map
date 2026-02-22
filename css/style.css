@@ -222,15 +222,6 @@ a:hover {
   padding: var(--space-lg) var(--space-lg);
 }
 
-/* ── Compass Rose ─────────────────────────────────────────── */
-.compass-rose {
-  width: 48px;
-  height: 48px;
-  color: var(--color-forest-light);
-  margin-bottom: var(--space-md);
-  opacity: 0.8;
-}
-
 /* ── Sidebar Default State ───────────────────────────────── */
 .sidebar-intro {
   animation: fadeInUp 0.5s ease both;
