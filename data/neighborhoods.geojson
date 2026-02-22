@@ -6,8 +6,7 @@
       "properties": {
         "name": "Upper",
         "nickname": "",
-        "slug": "upper",
-        "status": "active"
+        "slug": "upper"
       },
       "geometry": {
         "coordinates": [
@@ -114,8 +113,7 @@
       "properties": {
         "name": "OG Mainvue",
         "nickname": "",
-        "slug": "og-mainvue",
-        "status": "active"
+        "slug": "og-mainvue"
       },
       "geometry": {
         "coordinates": [
@@ -158,8 +156,7 @@
       "properties": {
         "name": "New Upper",
         "nickname": "NUT",
-        "slug": "new-upper",
-        "status": "active"
+        "slug": "new-upper"
       },
       "geometry": {
         "coordinates": [
@@ -206,8 +203,7 @@
       "properties": {
         "name": "Berkeley Park",
         "nickname": "Berkleley Partyway",
-        "slug": "berkeley-park",
-        "status": "active"
+        "slug": "berkeley-park"
       },
       "geometry": {
         "coordinates": [
@@ -274,8 +270,7 @@
       "properties": {
         "name": "Town Homes",
         "nickname": "",
-        "slug": "town-homes",
-        "status": "active"
+        "slug": "town-homes"
       },
       "geometry": {
         "coordinates": [
@@ -314,8 +309,7 @@
       "properties": {
         "name": "Observation Ridge",
         "nickname": "Super Upper",
-        "slug": "observation-ridge",
-        "status": "active"
+        "slug": "observation-ridge"
       },
       "geometry": {
         "coordinates": [
@@ -386,8 +380,7 @@
       "properties": {
         "name": "Glacier Pointe",
         "nickname": "",
-        "slug": "glacier-pointe",
-        "status": "active"
+        "slug": "glacier-pointe"
       },
       "geometry": {
         "coordinates": [
@@ -534,8 +527,7 @@
       "properties": {
         "name": "Big Sky",
         "nickname": "Inspiration Ridge",
-        "slug": "big-sky",
-        "status": "active"
+        "slug": "big-sky"
       },
       "geometry": {
         "coordinates": [
@@ -593,8 +585,7 @@
       "type": "Feature",
       "properties": {
         "name": "Trilogy",
-        "slug": "trilogy",
-        "status": "active"
+        "slug": "trilogy"
       },
       "geometry": {
         "coordinates": [
@@ -732,8 +723,7 @@
       "type": "Feature",
       "properties": {
         "name": "Tyee Ridge",
-        "slug": "tyee-ridge",
-        "status": "active"
+        "slug": "tyee-ridge"
       },
       "geometry": {
         "coordinates": [
@@ -783,8 +773,7 @@
       "type": "Feature",
       "properties": {
         "name": "Wesley",
-        "slug": "wesley",
-        "status": "active"
+        "slug": "wesley"
       },
       "geometry": {
         "coordinates": [
@@ -831,8 +820,7 @@
       "properties": {
         "name": "Cathedral Ridge",
         "nickname": "",
-        "slug": "cathedral-ridge",
-        "status": "active"
+        "slug": "cathedral-ridge"
       },
       "geometry": {
         "coordinates": [
@@ -887,8 +875,7 @@
       "properties": {
         "name": "Pyramid Ridge",
         "nickname": "",
-        "slug": "pyramid-ridge",
-        "status": "active"
+        "slug": "pyramid-ridge"
       },
       "geometry": {
         "coordinates": [
@@ -927,8 +914,7 @@
       "properties": {
         "name": "Lower",
         "nickname": "OG Tehaleh / Historic Distric",
-        "slug": "pinnacle-ridge",
-        "status": "active"
+        "slug": "pinnacle-ridge"
       },
       "geometry": {
         "coordinates": [
@@ -991,8 +977,7 @@
       "properties": {
         "name": "Edmunds Park",
         "nickname": "",
-        "slug": "edmunds-park",
-        "status": "active"
+        "slug": "edmunds-park"
       },
       "geometry": {
         "coordinates": [
@@ -1047,8 +1032,7 @@
       "properties": {
         "name": "Eagle Ridge",
         "nickname": "",
-        "slug": "eagle-ridge",
-        "status": "active"
+        "slug": "eagle-ridge"
       },
       "geometry": {
         "coordinates": [
@@ -1099,8 +1083,7 @@
       "properties": {
         "name": "Glacier Pointe Verterra",
         "nickname": "",
-        "slug": "glacier-pointe-verterra",
-        "status": "active"
+        "slug": "glacier-pointe-verterra"
       },
       "geometry": {
         "coordinates": [
@@ -1151,8 +1134,7 @@
       "properties": {
         "name": "Pinnacle Ridge",
         "nickname": "",
-        "slug": "pinnacle-ridge",
-        "status": "active"
+        "slug": "pinnacle-ridge"
       },
       "geometry": {
         "coordinates": [

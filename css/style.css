@@ -96,7 +96,15 @@ a:hover {
 .site-header {
   position: relative;
   height: var(--header-height);
-  background: var(--color-forest);
+  background-color: var(--color-forest);
+  background-image:
+    linear-gradient(
+      rgba(30, 58, 45, 0.82),
+      rgba(22, 42, 33, 0.88)
+    ),
+    url('https://images.unsplash.com/photo-1628841380003-90e0e39b3ba1?w=1600&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 40%;
   display: flex;
   align-items: center;
   padding: 0 var(--space-xl);
@@ -364,59 +372,6 @@ a:hover {
   margin-bottom: var(--space-lg);
 }
 
-.detail-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-lg);
-}
-
-.tag {
-  font-size: 11.5px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: var(--color-stone-light);
-  color: var(--color-ink-mid);
-  border: 1px solid rgba(0,0,0,0.08);
-}
-
-.detail-meta {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  border-top: 1px solid var(--color-stone-light);
-  padding-top: var(--space-md);
-}
-
-.meta-row {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
-}
-
-.meta-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: var(--color-forest-light);
-}
-
-.meta-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-ink-light);
-  min-width: 70px;
-}
-
-.meta-value {
-  font-size: 13.5px;
-  color: var(--color-ink-mid);
-}
-
 /* ── Map Wrapper ─────────────────────────────────────────── */
 .map-wrap {
   flex: 1;
@@ -508,7 +463,15 @@ a:hover {
 
 /* ── Footer ──────────────────────────────────────────────── */
 .site-footer {
-  background: var(--color-ink);
+  background-color: var(--color-ink);
+  background-image:
+    linear-gradient(
+      rgba(18, 28, 22, 0.88),
+      rgba(18, 28, 22, 0.90)
+    ),
+    url('https://images.unsplash.com/photo-1628841380003-90e0e39b3ba1?w=1600&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 60%;
   color: rgba(255,255,255,0.5);
   font-size: 11.5px;
   text-align: center;
