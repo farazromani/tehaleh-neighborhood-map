@@ -33,97 +33,74 @@ const NEIGHBORHOOD_DATA = {
   "Big Sky": {
     type: "Active Neighborhood",
     description: "A scenic neighborhood in the southern reaches of Tehaleh, Big Sky earns its name with wide-open views toward the Cascade foothills. Newer construction and a mix of builder styles make it a popular choice for families.",
-    tags: ["Views", "New Construction", "Family-Friendly"],
   },
   "Trilogy": {
     type: "55+ Age-Qualified Community",
-    description: "An award-winning active adult neighborhood by Shea Homes. Trilogy residents enjoy exclusive access to Seven Summits Lodge, a resort-style clubhouse inspired by the seven peaks of the Cascade Range. Amenities include a disappearing indoor lap pool, fitness center, The Mantel restaurant, Hawk's Nest game room with billiards and golf simulator, culinary studio, pickleball courts, and a great lawn.",
-    tags: ["55+ Active Adult", "Shea Homes", "Clubhouse", "Pool"],
-    amenities: "Seven Summits Lodge, The Mantel restaurant, disappearing indoor lap pool, fitness center, Hawk's Nest game room with billiards and golf simulator, pickleball courts, culinary studio, great lawn",
+    description: "An award-winning active adult neighborhood by Shea Homes. Trilogy residents enjoy exclusive access to Seven Summits Lodge — a resort-style clubhouse inspired by the seven peaks of the Cascade Range, featuring a disappearing indoor lap pool, fitness center, The Mantel restaurant, Hawk's Nest game room, culinary studio, pickleball courts, and a great lawn.",
   },
   "Tyee Ridge": {
     type: "Active Neighborhood",
     description: "Perched along one of Tehaleh's natural ridgelines, Tyee Ridge offers elevated homesites with pleasant territorial views and easy access to the community's extensive trail network.",
-    tags: ["Ridge Views", "Trail Access"],
   },
   "Wesley": {
     type: "Senior Living",
     description: "A Life Plan Community (continuing care retirement community) offering independent living, assisted living, memory care, and skilled nursing — all within the Tehaleh master plan and surrounded by nature.",
-    tags: ["Senior Living", "Continuing Care", "All Care Levels"],
-    amenities: "Full-service senior campus",
   },
   "Berkeley Park": {
     type: "Active Neighborhood",
-    description: "A lively neighborhood centered around park space, Berkeley Park is known for its community feel, green commons, and central location within the Tehaleh master plan. Hounds Hollow Dog Park is located nearby.",
-    tags: ["Parks", "Community Feel", "Central Location"],
+    description: "A lively neighborhood centered around park space, Berkeley Park is known for its community feel, green commons, and central location within the Tehaleh master plan.",
   },
   "Town Homes": {
     type: "Attached Homes Community",
     description: "Tehaleh's townhome enclave offers lower-maintenance living without sacrificing access to the community's miles of trails, parks, and amenities. A great option for first-time buyers or those looking to downsize.",
-    tags: ["Townhomes", "Low Maintenance", "Attached Homes"],
   },
   "Cathedral Ridge": {
     type: "Active Neighborhood",
     description: "Named for the cathedral-like Douglas firs that define its character, Cathedral Ridge is one of Tehaleh's most naturally beautiful neighborhoods, with heavily wooded lots and a sense of seclusion.",
-    tags: ["Wooded Lots", "Nature", "Seclusion"],
   },
   "Upper": {
     type: "Established Neighborhood",
     description: "One of Tehaleh's higher-elevation established neighborhoods, Upper enjoys broad views and a quieter, more tucked-away feel while remaining connected to the broader trail and park network.",
-    tags: ["Elevated", "Established", "Views"],
   },
   "OG Mainvue": {
     type: "Established Neighborhood",
     description: "The original MainVue section of Tehaleh, featuring single-family homes from the community's earlier development phases. A well-established area with mature landscaping and settled character.",
-    tags: ["Established", "Mature Landscaping", "Original Phase"],
   },
   "New Upper": {
     type: "Active Neighborhood",
     description: "An expansion of the Upper neighborhood area, New Upper (NUT) features newer construction on sites that capture some of the best elevated views in the community.",
-    tags: ["New Construction", "Elevated Views", "Expansion"],
   },
   "Pinnacle Ridge": {
     type: "Active Neighborhood",
     description: "True to its name, Pinnacle Ridge sits at one of Tehaleh's highest points, offering sweeping panoramic views. Homesites here are among the most coveted in the community.",
-    tags: ["Panoramic Views", "Premium Lots", "High Elevation"],
   },
   "Observation Ridge": {
     type: "Active Neighborhood",
     description: "Positioned to take full advantage of Tehaleh's natural topography, Observation Ridge lives up to its nickname 'Super Upper' with some of the most dramatic elevated outlooks in the community.",
-    tags: ["Elevated", "Views", "Premium"],
   },
   "Pyramid Ridge": {
     type: "Active Neighborhood",
     description: "A compact and cohesive neighborhood tucked into the ridgeline terrain, Pyramid Ridge features homes that blend into the natural landscape with thoughtful siting and mature tree preservation.",
-    tags: ["Ridgeline", "Nature", "Tree Preservation"],
   },
   "Lower": {
     type: "Original Neighborhood",
-    description: "The historic heart of Tehaleh — also known as OG Tehaleh or the Historic District.",
-    tags: ["Original Phase", "Historic", "Community Center", "Dog Park"],
-    amenities: "The Edge Skatepark",
+    description: "The historic heart of Tehaleh — also known as OG Tehaleh or the Historic District. This is where the community story began, centered around Discovery Park Community Center, Hounds Hollow Dog Park, and the original trail network.",
   },
   "Edmunds Park": {
     type: "Park & Residential Neighborhood",
     description: "A neighborhood organized around park and open-space amenities, Edmunds Park offers a green, active lifestyle with direct access to recreational facilities and trail connections throughout Tehaleh.",
-    tags: ["Parks", "Open Space", "Recreational", "Trail Access"],
   },
   "Eagle Ridge": {
     type: "Active Neighborhood",
     description: "One of Tehaleh's newer and most expansive neighborhoods, Eagle Ridge stretches across broad terrain with a variety of floor plans and builders. Named for the eagles occasionally spotted soaring over the community.",
-    tags: ["New Construction", "Multiple Builders", "Expansive", "Wildlife"],
   },
   "Glacier Pointe": {
-    type: "Active Neighborhood Phase 2",
-    description: "Glacier Pointe represents Tehaleh's second major phase of development, set in the Cascade foothills with strong Mt. Rainier visibility from select homesites. Builders include D.R. Horton, Tri Pointe Homes, Holt Homes, Richmond American, and Garrette Custom Homes. The neighborhood includes Infinity Park, the Tehaleh Welcome Center, and the future Retreat clubhouse planned for 2027.",
-    tags: ["Phase 2", "Multiple Builders", "Mt. Rainier Views", "New Construction", "Cascade Foothills"],
-    amenities: "Infinity Park, Tehaleh Welcome Center, The Retreat clubhouse planned for 2027, 40+ miles of trails",
+    type: "Active Neighborhood — Phase 2",
+    description: "Glacier Pointe officially launches Tehaleh's second phase — a sweeping new addition nestled in the Cascade foothills with stunning views of Mt. Rainier. Multiple national builders including D.R. Horton, Tri Pointe Homes, Holt Homes, Richmond American, and Garrette Homes offer a wide variety of floor plans from paired homes to spacious five-bedroom single-family designs. Glacier Pointe is also home to the new Tehaleh Welcome Center and the future Retreat clubhouse, opening 2027.",
   },
   "Glacier Pointe Verterra": {
     type: "55+ Boutique Community",
-    description: "Verterra is a Trilogy Boutique Community by Shea Homes located within Glacier Pointe. This age-qualified neighborhood features single-family and attached homes with Mt. Rainier views from select sites. Amenities include The Club clubhouse, seasonal pool, pickleball courts, fitness center, and fitness lawn.",
-    tags: ["55+ Active Adult", "Shea Homes", "Trilogy Boutique", "Resort-Style", "Clubhouse", "Mt. Rainier Views"],
-    amenities: "The Club clubhouse, seasonal pool, pickleball courts, fitness center, fitness lawn, access to Tehaleh trails and parks",
+    description: "Verterra — a Trilogy® Boutique Community — is Shea Homes' newest age-qualified neighborhood, tucked within Glacier Pointe with panoramic Mt. Rainier views from every vantage point. Built by America's Most Trusted® Active Adult Resort Builder for 12 consecutive years, Verterra offers 485 single-family and attached homes across five collections, ranging from 1,342 to 2,584 sq ft with one to three bedrooms. Resort-style amenities include a clubhouse (The Club), seasonal pool, pickleball courts, fitness center, and a fitness lawn — all designed around an active, social lifestyle.",
   },
 };
 
@@ -155,8 +132,6 @@ const detailColorBar = document.getElementById('detail-color-bar');
 const detailName     = document.getElementById('detail-name');
 const detailType     = document.getElementById('detail-type');
 const detailDesc     = document.getElementById('detail-description');
-const detailTags     = document.getElementById('detail-tags');
-const detailMeta     = document.getElementById('detail-meta');
 const legendList     = document.getElementById('legend-list');
 
 // ── Color Helpers ──────────────────────────────────────────
@@ -229,31 +204,6 @@ function onFeatureClick(e) {
     : (data.type || 'Neighborhood');
 
   detailDesc.textContent = data.description || 'More information coming soon for this neighborhood.';
-
-  // Tags
-  detailTags.innerHTML = '';
-  (data.tags || []).forEach(tag => {
-    const span = document.createElement('span');
-    span.className   = 'tag';
-    span.textContent = tag;
-    detailTags.appendChild(span);
-  });
-
-  // Meta rows (only rendered when data exists)
-  detailMeta.innerHTML = '';
-  const metaItems = [];
-  if (data.amenities) metaItems.push({ label: 'Amenities', value: data.amenities });
-  if (props.status)   metaItems.push({ label: 'Status',    value: capitalize(props.status) });
-
-  metaItems.forEach(({ label, value }) => {
-    const row = document.createElement('div');
-    row.className = 'meta-row';
-    row.innerHTML = `
-      <span class="meta-label">${label}</span>
-      <span class="meta-value">${value}</span>
-    `;
-    detailMeta.appendChild(row);
-  });
 
   // Switch sidebar panels
   sidebarDefault.hidden = true;
