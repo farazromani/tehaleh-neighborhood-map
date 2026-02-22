@@ -4,7 +4,7 @@
 ═══════════════════════════════════════════════════════════ */
 
 // ── Neighborhood Color Palette ─────────────────────────────
-// 16 neighborhoods, each with a distinct earthy PNW color.
+// 18 neighborhoods, each with a distinct earthy PNW color.
 const NEIGHBORHOOD_COLORS = {
   "Big Sky":                   "#4e8b6e",   // forest green
   "Trilogy":                   "#8a7fb5",   // lavender sage
@@ -37,9 +37,9 @@ const NEIGHBORHOOD_DATA = {
   },
   "Trilogy": {
     type: "55+ Age-Qualified Community",
-    description: "An award-winning active adult neighborhood by Shea Homes. Trilogy residents enjoy exclusive access to The Trilogy Club — a full-service clubhouse featuring a resort-style pool, fitness center, and The Post & Pour restaurant.",
+    description: "An award-winning active adult neighborhood by Shea Homes. Trilogy residents enjoy exclusive access to Seven Summits Lodge, a resort-style clubhouse inspired by the seven peaks of the Cascade Range. Amenities include a disappearing indoor lap pool, fitness center, The Mantel restaurant, Hawk's Nest game room with billiards and golf simulator, culinary studio, pickleball courts, and a great lawn.",
     tags: ["55+ Active Adult", "Shea Homes", "Clubhouse", "Pool"],
-    amenities: "The Trilogy Club, pool, fitness center, The Post & Pour restaurant",
+    amenities: "Seven Summits Lodge, The Mantel restaurant, disappearing indoor lap pool, fitness center, Hawk's Nest game room with billiards and golf simulator, pickleball courts, culinary studio, great lawn",
   },
   "Tyee Ridge": {
     type: "Active Neighborhood",
@@ -54,7 +54,7 @@ const NEIGHBORHOOD_DATA = {
   },
   "Berkeley Park": {
     type: "Active Neighborhood",
-    description: "A lively neighborhood centered around park space, Berkeley Park is known for its community feel, green commons, and central location within the Tehaleh master plan.",
+    description: "A lively neighborhood centered around park space, Berkeley Park is known for its community feel, green commons, and central location within the Tehaleh master plan. Hounds Hollow Dog Park is located nearby.",
     tags: ["Parks", "Community Feel", "Central Location"],
   },
   "Town Homes": {
@@ -99,9 +99,9 @@ const NEIGHBORHOOD_DATA = {
   },
   "Lower": {
     type: "Original Neighborhood",
-    description: "The historic heart of Tehaleh — also known as OG Tehaleh or the Historic District. This is where the community story began, centered around Discovery Park Community Center, Hounds Hollow Dog Park, and the original trail network.",
+    description: "The historic heart of Tehaleh — also known as OG Tehaleh or the Historic District.",
     tags: ["Original Phase", "Historic", "Community Center", "Dog Park"],
-    amenities: "Discovery Park Community Center, Hounds Hollow Dog Park, The Edge Skatepark, The Trek Mountain Bike Park",
+    amenities: "The Edge Skatepark",
   },
   "Edmunds Park": {
     type: "Park & Residential Neighborhood",
@@ -114,16 +114,16 @@ const NEIGHBORHOOD_DATA = {
     tags: ["New Construction", "Multiple Builders", "Expansive", "Wildlife"],
   },
   "Glacier Pointe": {
-    type: "Active Neighborhood — Phase 2",
-    description: "Glacier Pointe officially launches Tehaleh's second phase — a sweeping new addition nestled in the Cascade foothills with stunning views of Mt. Rainier. Multiple national builders including D.R. Horton, Tri Pointe Homes, Holt Homes, Richmond American, and Garrette Homes offer a wide variety of floor plans from paired homes to spacious five-bedroom single-family designs. Future parks and trail extensions will weave Glacier Pointe into Tehaleh's beloved 40+ mile network.",
+    type: "Active Neighborhood Phase 2",
+    description: "Glacier Pointe represents Tehaleh's second major phase of development, set in the Cascade foothills with strong Mt. Rainier visibility from select homesites. Builders include D.R. Horton, Tri Pointe Homes, Holt Homes, Richmond American, and Garrette Custom Homes. The neighborhood includes Infinity Park, the Tehaleh Welcome Center, and the future Retreat clubhouse planned for 2027.",
     tags: ["Phase 2", "Multiple Builders", "Mt. Rainier Views", "New Construction", "Cascade Foothills"],
-    amenities: "40+ miles of trails, future parks, connection to Post & Pour, Hounds Hollow Dog Park, The Trek mountain bike park",
+    amenities: "Infinity Park, Tehaleh Welcome Center, The Retreat clubhouse planned for 2027, 40+ miles of trails",
   },
   "Glacier Pointe Verterra": {
     type: "55+ Boutique Community",
-    description: "Verterra — a Trilogy® Boutique Community — is Shea Homes' newest age-qualified neighborhood, tucked within Glacier Pointe with panoramic Mt. Rainier views from every vantage point. Built by America's Most Trusted® Active Adult Resort Builder for 12 consecutive years, Verterra offers 485 single-family and attached homes across five collections, ranging from 1,342 to 2,584 sq ft with one to three bedrooms. Resort-style amenities include a clubhouse (The Club), seasonal pool, pickleball courts, fitness center, and a fitness lawn — all designed around an active, social lifestyle.",
+    description: "Verterra is a Trilogy Boutique Community by Shea Homes located within Glacier Pointe. This age-qualified neighborhood features single-family and attached homes with Mt. Rainier views from select sites. Amenities include The Club clubhouse, seasonal pool, pickleball courts, fitness center, and fitness lawn.",
     tags: ["55+ Active Adult", "Shea Homes", "Trilogy Boutique", "Resort-Style", "Clubhouse", "Mt. Rainier Views"],
-    amenities: "The Club clubhouse, seasonal pool, pickleball courts, fitness center, fitness lawn, access to all Tehaleh trails and parks",
+    amenities: "The Club clubhouse, seasonal pool, pickleball courts, fitness center, fitness lawn, access to Tehaleh trails and parks",
   },
 };
 
@@ -349,9 +349,9 @@ fetch('./data/neighborhoods.geojson')
 
         // Permanent label centered on the polygon
         layer.bindTooltip(tooltipContent, {
-          permanent:  true,
-          direction:  'center',
-          className:  'nbhd-tooltip',
+          permanent:   true,
+          direction:   'center',
+          className:   'nbhd-tooltip',
           interactive: false,
         });
 
