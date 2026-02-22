@@ -84,7 +84,7 @@ const NEIGHBORHOOD_DATA = {
   },
   "Lower": {
     type: "Original Neighborhood",
-    description: "The historic heart of Tehaleh — also known as OG Tehaleh or the Historic District. This is where the community story began, centered around Discovery Park Community Center, Hounds Hollow Dog Park, and the original trail network.",
+    description: "The historic heart of Tehaleh — also known as OG Tehaleh or the Historic District. This is where the community story began.",
   },
   "Edmunds Park": {
     type: "Park & Residential Neighborhood",
