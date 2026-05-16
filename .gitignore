@@ -1,0 +1,26 @@
+# Claude Code local project settings
+.claude/settings.local.json
+
+# Claude Code temporary/session files
+.claude/tmp/
+.claude/cache/
+.claude/logs/
+
+# Claude-generated local context or scratch files
+.claude/*.local.*
+.claude/*.tmp
+.claude/*.log
+
+# Claude memory or workspace files you do not want committed
+CLAUDE.local.md
+CLAUDE.private.md
+.claude-memory
+.claude-memory.*
+
+# Claude artifacts / generated output folders
+claude-artifacts/
+claude-output/
+claude-generated/
+
+# Visual companion brainstorming sessions
+.superpowers/
