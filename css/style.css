@@ -1,27 +1,22 @@
 /* ═══════════════════════════════════════════════════════════
    TEHALEH NEIGHBORHOOD MAP — STYLESHEET
-   Aesthetic: Pacific Northwest / Topographic Trail Map
+   Aesthetic: Pacific Northwest Naturalist Field Journal
    Fonts: Zilla Slab (display) + Source Sans 3 (body)
 ═══════════════════════════════════════════════════════════ */
 
 /* ── Design Tokens ───────────────────────────────────────── */
 :root {
-  /* ── Old Growth Trail — light mode ──────────────────────── */
-  --color-forest:       #2d4a32;   /* deep forest */
-  --color-forest-mid:   #4d7859;   /* mid forest */
-  --color-forest-light: #6da07e;   /* light forest */
-  --color-canopy:       #6da07e;
-  --color-canopy-pale:  #e8efe0;
-  --color-stone:        #3d6048;
-  --color-stone-light:  rgba(77, 120, 89, 0.20);
-  --color-parchment:    #e8e3d9;   /* warm birch — page background */
-  --color-cream:        #2d4a32;   /* deep forest — sidebar background */
-  --color-bark:         #8b5e3a;   /* cedar accent */
-  --color-sky:          #6da07e;
-  --color-sky-pale:     #c8ddd0;
-  --color-ink:          #1a2e1e;   /* primary text on light bg */
-  --color-ink-mid:      #2d4a32;   /* medium text */
-  --color-ink-light:    #4a7a5a;   /* secondary text */
+  /* ── Naturalist Field Journal ────────────────────────────── */
+  --color-forest:       #2a3820;   /* header, footer, dark surfaces */
+  --color-forest-mid:   #4a6838;   /* hover, back button */
+  --color-forest-light: #7a9060;   /* borders, muted labels */
+  --color-parchment:    #f2ecd6;   /* map background / body */
+  --color-panel:        #f8f4e4;   /* floating journal panel */
+  --color-bark:         #8a6a40;   /* cedar accent */
+  --color-spine:        #5a7848;   /* journal spine */
+  --color-ink:          #2a3820;   /* primary text */
+  --color-ink-light:    #5a6a48;   /* secondary text */
+  --color-border:       rgba(154, 176, 128, 0.70); /* panel border */
 
   /* Spacing */
   --space-xs: 4px;
@@ -32,25 +27,21 @@
 
   /* Typography */
   --font-display: 'Zilla Slab', Georgia, serif;
-  --font-body: 'Source Sans 3', 'Gill Sans', sans-serif;
+  --font-body:    'Source Sans 3', 'Gill Sans', sans-serif;
 
   /* Radii */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 12px;
 
   /* Shadows */
-  --shadow-card:   0 4px 20px rgba(0,0,0,0.40), 0 1px 4px rgba(0,0,0,0.30);
-  --shadow-lifted: 0 8px 32px rgba(0,0,0,0.50), 0 2px 8px rgba(0,0,0,0.40);
+  --shadow-panel: 3px 5px 20px rgba(0,0,0,0.20), 0 1px 4px rgba(0,0,0,0.12);
 
   /* Layout */
-  --header-height: 80px;
-  --footer-height: 60px;
-  --sidebar-width: 300px;
-
-  /* Mobile drawer */
+  --header-height:      46px;
+  --panel-width:        220px;
   --drawer-peek:        60px;
-  --drawer-open-height: 55vh;
+  --drawer-open-height: 58vh;
 }
 
 /* ── Reset & Base ────────────────────────────────────────── */
@@ -82,10 +73,7 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
-
-a:hover {
-  color: var(--color-forest);
-}
+a:hover { color: var(--color-forest); }
 
 /* ── Header ──────────────────────────────────────────────── */
 .site-header {
@@ -93,24 +81,24 @@ a:hover {
   height: var(--header-height);
   background-color: var(--color-forest);
   background-image:
-    linear-gradient(rgba(22, 42, 28, 0.78), rgba(16, 32, 20, 0.84)),
+    linear-gradient(rgba(22, 42, 28, 0.80), rgba(16, 32, 20, 0.86)),
     url('https://images.unsplash.com/photo-1542856391-010fb87dcfed?w=1600&q=80&auto=format&fit=crop');
   background-size: cover;
   background-position: center 35%;
-  border-bottom: 1px solid rgba(45, 74, 50, 0.50);
+  border-bottom: 2px solid #1a2818;
   display: flex;
   align-items: center;
-  padding: 0 var(--space-xl);
+  padding: 0 var(--space-lg);
   overflow: hidden;
   flex-shrink: 0;
   z-index: 100;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.30);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   position: relative;
   z-index: 2;
   flex: 1;
@@ -119,36 +107,37 @@ a:hover {
 .header-brand {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1px;
   flex-shrink: 0;
 }
 
 .brand-eyebrow {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-bark);
+  color: rgba(180, 210, 150, 0.55);
   line-height: 1;
 }
 
 .brand-title {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
-  color: #e8efe0;
+  color: #e8ecd8;
   line-height: 1.1;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .header-tagline {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
-  color: rgba(232, 239, 224, 0.55);
+  color: rgba(200, 220, 175, 0.45);
   letter-spacing: 0.01em;
-  max-width: 500px;
+  max-width: 400px;
   line-height: 1.4;
 }
 
@@ -157,24 +146,12 @@ a:hover {
   position: absolute;
   right: -40px;
   top: -20px;
-  width: 420px;
-  height: 140px;
-  opacity: 0.12;
+  width: 380px;
+  height: 120px;
+  opacity: 0.10;
   background-image:
-    repeating-linear-gradient(
-      110deg,
-      transparent,
-      transparent 18px,
-      var(--color-canopy) 18px,
-      var(--color-canopy) 19px
-    ),
-    repeating-linear-gradient(
-      110deg,
-      transparent,
-      transparent 34px,
-      var(--color-canopy) 34px,
-      var(--color-canopy) 36px
-    );
+    repeating-linear-gradient(110deg, transparent, transparent 16px, #90c878 16px, #90c878 17px),
+    repeating-linear-gradient(110deg, transparent, transparent 30px, #90c878 30px, #90c878 32px);
   border-radius: 50%;
   transform: rotate(-8deg);
   pointer-events: none;
@@ -183,202 +160,17 @@ a:hover {
 /* ── Main Layout ─────────────────────────────────────────── */
 .layout {
   flex: 1;
-  display: flex;
+  position: relative;
   overflow: hidden;
   min-height: 0;
 }
 
-/* ── Sidebar ─────────────────────────────────────────────── */
-.sidebar {
-  width: var(--sidebar-width);
-  flex-shrink: 0;
-  background: var(--color-cream);
-  border-right: 1px solid rgba(45, 74, 50, 0.30);
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 10;
-  box-shadow: 2px 0 16px rgba(0,0,0,0.15);
-}
-
-/* Custom scrollbar for sidebar */
-.sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb {
-  background: rgba(77, 120, 89, 0.40);
-  border-radius: 2px;
-}
-
-.sidebar-section {
-  padding: var(--space-lg) var(--space-lg);
-}
-
-/* ── Compass Rose ─────────────────────────────────────────── */
-.compass-rose {
-  width: 48px;
-  height: 48px;
-  color: var(--color-forest-light);
-  margin-bottom: var(--space-md);
-  opacity: 0.8;
-}
-
-/* ── Sidebar Default State ───────────────────────────────── */
-.sidebar-intro {
-  animation: fadeInUp 0.5s ease both;
-}
-
-.sidebar-prompt {
-  font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 600;
-  color: #e8efe0;
-  line-height: 1.3;
-  margin-bottom: var(--space-sm);
-}
-
-.sidebar-hint {
-  font-size: 13.5px;
-  color: rgba(232, 239, 224, 0.45);
-  line-height: 1.6;
-  margin-bottom: var(--space-xl);
-}
-
-/* ── Legend ──────────────────────────────────────────────── */
-.legend {
-  border-top: 1px solid var(--color-stone-light);
-  padding-top: var(--space-md);
-}
-
-.legend-title {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(109, 160, 126, 0.60);
-  margin-bottom: var(--space-sm);
-}
-
-.legend-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: 6px var(--space-sm);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-
-.legend-item:hover {
-  background: rgba(77, 120, 89, 0.15);
-}
-
-.legend-item.active {
-  background: rgba(160, 120, 72, 0.12);
-}
-
-.legend-swatch {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  border: 1.5px solid rgba(255,255,255,0.12);
-}
-
-.legend-label {
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(232, 239, 224, 0.70);
-  line-height: 1.2;
-}
-
-.legend-item.active .legend-label {
-  color: #e8efe0;
-  font-weight: 600;
-}
-
-/* ── Sidebar Detail Panel ────────────────────────────────── */
-.sidebar-detail {
-  animation: fadeInUp 0.35s ease both;
-}
-
-.sidebar-detail[hidden] {
-  display: none;
-}
-
-.back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(200, 230, 210, 0.80);
-  padding: 0;
-  margin-bottom: var(--space-lg);
-  transition: color 0.15s ease, gap 0.15s ease;
-}
-
-.back-btn:hover {
-  color: #e8efe0;
-  gap: 4px;
-}
-
-.back-btn svg {
-  flex-shrink: 0;
-}
-
-.detail-color-bar {
-  height: 5px;
-  border-radius: 3px;
-  margin-bottom: var(--space-lg);
-  transition: background 0.3s ease;
-}
-
-.detail-name {
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 700;
-  color: #e8efe0;
-  line-height: 1.2;
-  margin-bottom: var(--space-xs);
-}
-
-.detail-type {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-bark);
-  margin-bottom: var(--space-md);
-}
-
-.detail-description {
-  font-size: 14px;
-  color: rgba(232, 239, 224, 0.55);
-  line-height: 1.65;
-  margin-bottom: var(--space-lg);
-}
-
-/* ── Map Wrapper ─────────────────────────────────────────── */
+/* ── Map fills the full layout area ──────────────────────── */
 .map-wrap {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  min-width: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #map {
@@ -388,21 +180,206 @@ a:hover {
   height: 100%;
 }
 
-/* Override Leaflet attribution (we have our own) */
-.leaflet-control-attribution {
-  display: none !important;
+/* ── Floating Journal Panel (desktop) ────────────────────── */
+.sidebar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: var(--panel-width);
+  max-height: calc(100% - 40px);
+  background: var(--color-panel);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-panel);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 500;
 }
+
+/* Journal spine — green stripe at top of panel */
+.journal-spine {
+  height: 4px;
+  background: linear-gradient(90deg, #4a6838, #7a9860 50%, #4a6838);
+  flex-shrink: 0;
+}
+
+/* Custom scrollbar */
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(90, 120, 72, 0.35);
+  border-radius: 2px;
+}
+
+.sidebar-section {
+  padding: var(--space-md);
+}
+
+/* ── Compass Rose ─────────────────────────────────────────── */
+.compass-rose {
+  display: none;
+}
+
+/* ── Sidebar Default State ───────────────────────────────── */
+.sidebar-intro {
+  animation: fadeInUp 0.4s ease both;
+}
+
+.sidebar-prompt {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.3;
+  margin-bottom: var(--space-xs);
+}
+
+.sidebar-hint {
+  font-size: 12px;
+  color: var(--color-ink-light);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+}
+
+/* ── Legend ──────────────────────────────────────────────── */
+.legend {
+  border-top: 1px solid rgba(154, 176, 128, 0.40);
+  padding-top: var(--space-sm);
+}
+
+.legend-title {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(74, 104, 56, 0.60);
+  margin-bottom: var(--space-sm);
+}
+
+.legend-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 5px var(--space-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.legend-item:hover {
+  background: rgba(90, 120, 72, 0.10);
+}
+
+.legend-item.active {
+  background: rgba(138, 106, 64, 0.12);
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.10);
+}
+
+.legend-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-ink-light);
+  line-height: 1.2;
+}
+
+.legend-item.active .legend-label {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* ── Sidebar Detail Panel ────────────────────────────────── */
+.sidebar-detail {
+  animation: fadeInUp 0.3s ease both;
+}
+
+.sidebar-detail[hidden] { display: none; }
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-forest-mid);
+  padding: 0;
+  margin-bottom: var(--space-md);
+  transition: color 0.15s ease, gap 0.15s ease;
+}
+
+.back-btn:hover {
+  color: var(--color-ink);
+  gap: 4px;
+}
+
+.back-btn svg { flex-shrink: 0; }
+
+.detail-color-bar {
+  height: 3px;
+  border-radius: 2px;
+  margin-bottom: var(--space-md);
+  transition: background 0.3s ease;
+}
+
+.detail-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+
+.detail-type {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-bark);
+  margin-bottom: var(--space-sm);
+}
+
+.detail-description {
+  font-size: 12.5px;
+  color: var(--color-ink-light);
+  line-height: 1.65;
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Map Controls ────────────────────────────────────────── */
+.leaflet-control-attribution { display: none !important; }
 
 .map-attribution-overlay {
   position: absolute;
   bottom: 8px;
   right: 12px;
   z-index: 500;
-  font-size: 10px;
-  color: rgba(26, 46, 30, 0.55);
-  background: rgba(240, 237, 230, 0.88);
+  font-size: 9.5px;
+  color: rgba(42, 56, 32, 0.50);
+  background: rgba(248, 244, 228, 0.82);
   padding: 2px 8px;
-  border-radius: 3px;
+  border-radius: 2px;
   pointer-events: none;
   backdrop-filter: blur(4px);
 }
@@ -412,174 +389,102 @@ a:hover {
   color: var(--color-bark);
 }
 
-/* Leaflet popup customization */
-.leaflet-popup-content-wrapper {
-  background: var(--color-cream);
-  border: none;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lifted);
-  padding: 0;
-  overflow: hidden;
-}
-
-.leaflet-popup-content {
-  margin: 0;
-  padding: var(--space-md) var(--space-lg);
-}
-
-.leaflet-popup-tip-container {
-  display: none;
-}
-
-.popup-name {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--color-ink);
-  margin-bottom: 2px;
-}
-
-.popup-hint {
-  font-size: 11px;
-  color: var(--color-ink-light);
-}
-
-/* Leaflet zoom controls */
 .leaflet-control-zoom {
   border: none !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.40) !important;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.18) !important;
 }
 
 .leaflet-control-zoom a {
-  background: var(--color-parchment) !important;
+  background: var(--color-panel) !important;
   color: var(--color-forest-mid) !important;
-  border-color: rgba(77, 120, 89, 0.25) !important;
+  border-color: rgba(154, 176, 128, 0.50) !important;
   font-size: 16px !important;
   font-weight: 300 !important;
   transition: background 0.15s ease !important;
 }
 
 .leaflet-control-zoom a:hover {
-  background: rgba(77, 120, 89, 0.12) !important;
+  background: rgba(90, 120, 72, 0.10) !important;
 }
 
-/* ── Footer ──────────────────────────────────────────────── */
+/* ── Caption Bar (footer) ────────────────────────────────── */
 .site-footer {
-  background: #1e3224;
+  background: #1e2a18;
   border-top: 1px solid rgba(45, 74, 50, 0.40);
-  color: rgba(232, 239, 224, 0.35);
-  font-size: 11.5px;
+  color: rgba(200, 220, 175, 0.32);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-align: center;
-  padding: 10px var(--space-lg);
+  padding: 0 var(--space-lg);
+  height: 26px;
   flex-shrink: 0;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  line-height: 1.4;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
 }
 
-.footer-note {
-  color: rgba(232, 239, 224, 0.22);
-  font-size: 10.5px;
-}
+.footer-note { display: none; }
 
 .footer-link {
-  color: var(--color-bark);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  color: rgba(200, 220, 175, 0.45);
+  text-decoration: none;
   transition: color 0.15s ease;
 }
-
-.footer-link:hover {
-  color: #c8a070;
-}
+.footer-link:hover { color: rgba(200, 220, 175, 0.75); }
 
 /* ── Animations ──────────────────────────────────────────── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
 }
 
 /* ── Mobile Top Bar ──────────────────────────────────────── */
 .mobile-topbar {
   display: none;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 800;
   height: 52px;
   padding: 0 var(--space-md);
-  background: rgba(22, 42, 28, 0.84);
+  background: rgba(30, 42, 24, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(45, 74, 50, 0.40);
+  border-bottom: 1px solid rgba(90, 120, 72, 0.35);
   align-items: center;
   justify-content: space-between;
 }
 
-.mobile-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+.mobile-brand { display: flex; flex-direction: column; gap: 0; }
 
 .mobile-brand-eyebrow {
   font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(232, 239, 224, 0.65);
-  line-height: 1;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(200, 220, 175, 0.55); line-height: 1;
 }
 
 .mobile-brand-title {
   font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  color: #e8efe0;
-  line-height: 1.1;
+  font-size: 19px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: #e8ecd8; line-height: 1.1;
 }
 
 .mobile-hamburger {
-  background: rgba(160, 120, 72, 0.10);
-  border: 1px solid rgba(160, 120, 72, 0.30);
-  border-radius: 8px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  cursor: pointer;
-  padding: 0;
+  background: rgba(138, 106, 64, 0.12);
+  border: 1px solid rgba(138, 106, 64, 0.30);
+  border-radius: 6px; width: 36px; height: 36px;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 5px; cursor: pointer; padding: 0;
   transition: background 0.15s ease;
 }
-
-.mobile-hamburger:hover {
-  background: rgba(160, 120, 72, 0.22);
-}
-
+.mobile-hamburger:hover { background: rgba(138, 106, 64, 0.24); }
 .mobile-hamburger span {
-  display: block;
-  width: 16px;
-  height: 1.5px;
-  background: var(--color-bark);
-  border-radius: 1px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  display: block; width: 16px; height: 1.5px;
+  background: var(--color-bark); border-radius: 1px;
 }
 
-
-/* Drawer handle (hidden on desktop, visible on mobile) */
+/* Drawer handle */
 .drawer-handle {
   display: none;
   flex-direction: column;
@@ -591,40 +496,27 @@ a:hover {
 }
 
 .drawer-handle-pill {
-  width: 36px;
-  height: 4px;
+  width: 32px; height: 3px;
   background: var(--color-bark);
-  border-radius: 2px;
-  opacity: 0.65;
-  margin-bottom: 8px;
+  border-radius: 2px; opacity: 0.55; margin-bottom: 6px;
 }
 
 .drawer-hint {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(160, 120, 72, 0.70);
-  text-align: center;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.10em;
+  text-transform: uppercase; color: rgba(138, 106, 64, 0.65); text-align: center;
 }
 
 /* ── Mobile Responsive ───────────────────────────────────── */
 @media (max-width: 768px) {
-  :root {
-    --header-height: 0px;
-  }
+  :root { --header-height: 0px; }
 
-  html, body {
-    overflow: hidden;
-    height: 100%;
-  }
+  html, body { overflow: hidden; height: 100%; }
 
-  .site-header  { display: none; }
+  .site-header { display: none; }
   .site-footer  { display: none; }
 
   .layout {
     position: relative;
-    flex-direction: row;
     height: 100dvh;
     overflow: hidden;
   }
@@ -633,7 +525,6 @@ a:hover {
     position: absolute;
     inset: 0;
     height: 100%;
-    flex: none;
     width: 100%;
   }
 
@@ -644,30 +535,30 @@ a:hover {
     height: 100%;
   }
 
-  .mobile-topbar {
-    display: flex;
-  }
+  .mobile-topbar { display: flex; }
 
   .drawer-handle {
     display: flex;
     position: sticky;
     top: 0;
-    background: var(--color-cream);
+    background: var(--color-panel);
     z-index: 1;
   }
 
+  /* Journal spine hidden on mobile — border-top serves that purpose */
+  .journal-spine { display: none; }
+
   .sidebar {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
+    top: auto;
     width: 100%;
     height: var(--drawer-open-height);
     max-height: var(--drawer-open-height);
-    border-right: none;
-    border-top: 1px solid rgba(77, 120, 89, 0.25);
-    border-radius: 16px 16px 0 0;
-    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.45);
+    border-radius: 14px 14px 0 0;
+    border: none;
+    border-top: 3px solid var(--color-spine);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.22);
     transform: translateY(calc(100% - var(--drawer-peek)));
     transition: transform 0.30s cubic-bezier(0.32, 0.72, 0, 1);
     overflow-y: hidden;
@@ -678,11 +569,7 @@ a:hover {
     overflow-y: auto;
   }
 
-  .sidebar-section {
-    padding: var(--space-md) var(--space-md);
-  }
-
-  .compass-rose { display: none; }
+  .sidebar-section { padding: var(--space-md); }
 
   .leaflet-control-zoom {
     margin-bottom: calc(var(--drawer-peek) + 12px) !important;
@@ -690,19 +577,13 @@ a:hover {
 
   .map-attribution-overlay {
     bottom: calc(var(--drawer-peek) + 6px);
+    right: 8px;
   }
 }
 
 /* ── Utility ─────────────────────────────────────────────── */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border-width: 0;
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
 }
-

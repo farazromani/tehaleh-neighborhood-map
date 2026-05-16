@@ -41,6 +41,8 @@
     <!-- ── Sidebar ────────────────────── -->
     <aside class="sidebar" id="sidebar">
 
+      <div class="journal-spine" aria-hidden="true"></div>
+
       <div class="drawer-handle" id="drawer-handle" aria-hidden="true">
         <div class="drawer-handle-pill"></div>
         <p class="drawer-hint" id="drawer-hint">Tap a neighborhood to explore</p>
@@ -57,8 +59,8 @@
             <text x="28" y="16" font-size="7" fill="currentColor" font-family="serif" font-weight="bold">N</text>
           </svg>
         </div>
-        <h2 class="sidebar-prompt">Click a neighborhood to explore</h2>
-        <p class="sidebar-hint">Each colored zone on the map represents a distinct neighborhood within Tehaleh. Hover to highlight, click to learn more.</p>
+        <h2 class="sidebar-prompt">Field Notes</h2>
+        <p class="sidebar-hint">Click any neighborhood on the map to read its field notes.</p>
         <div class="legend">
           <h3 class="legend-title">Neighborhoods</h3>
           <ul class="legend-list" id="legend-list">
@@ -96,7 +98,7 @@
       </div>
       <div id="map"></div>
       <div class="map-attribution-overlay">
-        <span>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</span>
+        <span>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors · <a href="https://opentopomap.org" target="_blank" rel="noopener">OpenTopoMap</a></span>
       </div>
     </section>
 
@@ -106,9 +108,7 @@
        FOOTER
   ════════════════════════════════════ -->
   <footer class="site-footer">
-    <p>Tehaleh is a master-planned community in unincorporated Pierce County, WA &mdash; developed by Newland.</p>
-    <p class="footer-note">Neighborhood boundaries are approximate. This is a community fan project, not affiliated with Newland or Tehaleh.</p>
-    <p class="footer-note">Found a mistake or missing neighborhood? <a class="footer-link" href="https://github.com/farazromani/tehaleh-neighborhood-map/issues/new" target="_blank" rel="noopener">Report an issue on GitHub</a></p>
+    <p>Tehaleh &middot; Bonney Lake, WA &middot; Community fan project, not affiliated with Newland &middot; <a class="footer-link" href="https://github.com/farazromani/tehaleh-neighborhood-map/issues/new" target="_blank" rel="noopener">Report an issue</a></p>
   </footer>
 
   <!-- Leaflet JS -->

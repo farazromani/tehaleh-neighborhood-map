@@ -116,7 +116,7 @@ const map = L.map('map', {
 map.zoomControl.setPosition('topright');
 
 // ── Tile Layer ─────────────────────────────────────────────
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', { maxZoom: 17 }).addTo(map);
 
 // ── State ──────────────────────────────────────────────────
 let activeLayer  = null;
