@@ -55,6 +55,11 @@
     <!-- ── Sidebar ────────────────────── -->
     <aside class="sidebar" id="sidebar">
 
+      <div class="drawer-handle" id="drawer-handle" aria-hidden="true">
+        <div class="drawer-handle-pill"></div>
+        <p class="drawer-hint" id="drawer-hint">Tap a neighborhood to explore</p>
+      </div>
+
       <div class="sidebar-section sidebar-intro" id="sidebar-default">
         <div class="compass-rose" aria-hidden="true">
           <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,6 +99,15 @@
 
     <!-- ── Map ───────────────────────── -->
     <section class="map-wrap">
+      <div class="mobile-topbar" id="mobile-topbar" aria-label="Mobile navigation">
+        <div class="mobile-brand">
+          <span class="mobile-brand-eyebrow">Bonney Lake, WA</span>
+          <span class="mobile-brand-title">Tehaleh</span>
+        </div>
+        <button class="mobile-hamburger" id="mobile-hamburger" aria-label="View all neighborhoods">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
       <div id="map"></div>
       <div class="map-attribution-overlay">
         <span>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</span>
