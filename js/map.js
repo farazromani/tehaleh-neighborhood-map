@@ -115,49 +115,58 @@ const map = L.map('map', {
 // Position zoom control top-right (sidebar occupies left side)
 map.zoomControl.setPosition('topright');
 
-// ── Tile Layers ────────────────────────────────────────────
-const TILES = {
-  light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }),
-  dark:  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
-};
-TILES.light.addTo(map);
-
-// ── Dark Mode ──────────────────────────────────────────────
-const html        = document.documentElement;
-const darkToggle  = document.getElementById('dark-toggle');
-let   isDark      = localStorage.getItem('tehaleh-theme') === 'dark';
-
-function applyTheme(dark) {
-  isDark = dark;
-  html.setAttribute('data-theme', dark ? 'dark' : 'light');
-  localStorage.setItem('tehaleh-theme', dark ? 'dark' : 'light');
-  if (dark) {
-    map.removeLayer(TILES.light);
-    TILES.dark.addTo(map);
-  } else {
-    map.removeLayer(TILES.dark);
-    TILES.light.addTo(map);
-  }
-}
-
-// Apply saved preference on load
-applyTheme(isDark);
-
-darkToggle.addEventListener('click', () => applyTheme(!isDark));
+// ── Tile Layer ─────────────────────────────────────────────
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
 // ── State ──────────────────────────────────────────────────
 let activeLayer  = null;
 let geojsonLayer = null;
 
 // ── DOM References ─────────────────────────────────────────
-const sidebarDefault = document.getElementById('sidebar-default');
-const sidebarDetail  = document.getElementById('sidebar-detail');
-const backBtn        = document.getElementById('back-btn');
-const detailColorBar = document.getElementById('detail-color-bar');
-const detailName     = document.getElementById('detail-name');
-const detailType     = document.getElementById('detail-type');
-const detailDesc     = document.getElementById('detail-description');
-const legendList     = document.getElementById('legend-list');
+const sidebarDefault  = document.getElementById('sidebar-default');
+const sidebarDetail   = document.getElementById('sidebar-detail');
+const backBtn         = document.getElementById('back-btn');
+const detailColorBar  = document.getElementById('detail-color-bar');
+const detailName      = document.getElementById('detail-name');
+const detailType      = document.getElementById('detail-type');
+const detailDesc      = document.getElementById('detail-description');
+const legendList      = document.getElementById('legend-list');
+const sidebar         = document.getElementById('sidebar');
+const drawerHandle    = document.getElementById('drawer-handle');
+const drawerHint      = document.getElementById('drawer-hint');
+const mobileHamburger = document.getElementById('mobile-hamburger');
+
+// ── Mobile Drawer ──────────────────────────────────────────
+function isMobile() {
+  return window.innerWidth < 768;
+}
+
+function openDrawer() {
+  sidebar.classList.add('drawer-open');
+}
+
+function closeDrawer() {
+  sidebar.classList.remove('drawer-open');
+}
+
+mobileHamburger.addEventListener('click', () => {
+  if (activeLayer) {
+    geojsonLayer.resetStyle(activeLayer);
+    activeLayer = null;
+    clearLegendActive();
+  }
+  sidebarDetail.hidden  = true;
+  sidebarDefault.hidden = false;
+  openDrawer();
+});
+
+drawerHandle.addEventListener('click', () => {
+  if (sidebar.classList.contains('drawer-open')) {
+    closeDrawer();
+  } else {
+    openDrawer();
+  }
+});
 
 // ── Color Helpers ──────────────────────────────────────────
 function getColor(name) {
@@ -193,6 +202,17 @@ function resetHighlight(e) {
   geojsonLayer.resetStyle(layer);
 }
 
+// ── Legend Active State ────────────────────────────────────
+function setLegendActive(name) {
+  legendList.querySelectorAll('.legend-item').forEach(li => {
+    li.classList.toggle('active', li.getAttribute('title') === name);
+  });
+}
+
+function clearLegendActive() {
+  legendList.querySelectorAll('.legend-item').forEach(li => li.classList.remove('active'));
+}
+
 function onFeatureClick(e) {
   const layer = e.target;
   const props = layer.feature.properties;
@@ -207,6 +227,9 @@ function onFeatureClick(e) {
   // Apply active style
   layer.setStyle(featureStyle(layer.feature, true));
   activeLayer = layer;
+
+  // Sync legend active highlight
+  setLegendActive(name);
 
   // Smoothly fly the map to this neighborhood's bounds
   map.flyToBounds(layer.getBounds(), {
@@ -235,7 +258,12 @@ function onFeatureClick(e) {
   sidebarDetail.hidden  = false;
 
   // Scroll sidebar back to top (especially helpful on mobile)
-  document.querySelector('.sidebar').scrollTop = 0;
+  sidebar.scrollTop = 0;
+
+  // On mobile: open the drawer to show neighborhood detail
+  if (isMobile()) {
+    openDrawer();
+  }
 }
 
 // ── Back Button ────────────────────────────────────────────
@@ -244,8 +272,13 @@ backBtn.addEventListener('click', () => {
     geojsonLayer.resetStyle(activeLayer);
     activeLayer = null;
   }
+  clearLegendActive();
   sidebarDetail.hidden  = true;
   sidebarDefault.hidden = false;
+  // On mobile: collapse the drawer back to its peek state
+  if (isMobile()) {
+    closeDrawer();
+  }
 });
 
 // ── Build Legend ───────────────────────────────────────────
@@ -362,16 +395,16 @@ fetch('./data/neighborhoods.geojson')
 const tooltipStyle = document.createElement('style');
 tooltipStyle.textContent = `
   .nbhd-tooltip {
-    background: rgba(20, 35, 28, 0.72) !important;
+    background: rgba(17, 28, 20, 0.85) !important;
     border: none !important;
     border-radius: 4px !important;
-    color: #f5f0e8 !important;
+    color: #e8efe0 !important;
     font-family: 'Zilla Slab', Georgia, serif !important;
     font-size: 11px !important;
     font-weight: 600 !important;
     line-height: 1.3 !important;
     padding: 3px 8px !important;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.30) !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.50) !important;
     white-space: normal !important;
     max-width: 110px !important;
     text-align: center !important;

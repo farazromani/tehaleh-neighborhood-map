@@ -28,20 +28,6 @@
         <h1 class="brand-title">Tehaleh</h1>
       </div>
       <p class="header-tagline">Explore the neighborhoods of Washington's premier master-planned community</p>
-      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
-        <!-- Moon icon (shown in light mode) -->
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <!-- Sun icon (shown in dark mode) -->
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <span class="sr-only">Dark mode</span>
-      </button>
     </div>
     <!-- decorative topographic lines -->
     <div class="header-topo" aria-hidden="true"></div>
@@ -54,6 +40,11 @@
 
     <!-- ── Sidebar ────────────────────── -->
     <aside class="sidebar" id="sidebar">
+
+      <div class="drawer-handle" id="drawer-handle" aria-hidden="true">
+        <div class="drawer-handle-pill"></div>
+        <p class="drawer-hint" id="drawer-hint">Tap a neighborhood to explore</p>
+      </div>
 
       <div class="sidebar-section sidebar-intro" id="sidebar-default">
         <div class="compass-rose" aria-hidden="true">
@@ -94,6 +85,15 @@
 
     <!-- ── Map ───────────────────────── -->
     <section class="map-wrap">
+      <div class="mobile-topbar" id="mobile-topbar" aria-label="Mobile navigation">
+        <div class="mobile-brand">
+          <span class="mobile-brand-eyebrow">Bonney Lake, WA</span>
+          <span class="mobile-brand-title">Tehaleh</span>
+        </div>
+        <button class="mobile-hamburger" id="mobile-hamburger" aria-label="View all neighborhoods">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
       <div id="map"></div>
       <div class="map-attribution-overlay">
         <span>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</span>
