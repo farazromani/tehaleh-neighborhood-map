@@ -91,22 +91,15 @@ a:hover {
 .site-header {
   position: relative;
   height: var(--header-height);
-  background-color: var(--color-forest);
-  background-image:
-    linear-gradient(
-      rgba(30, 58, 45, 0.82),
-      rgba(22, 42, 33, 0.88)
-    ),
-    url('https://images.unsplash.com/photo-1628841380003-90e0e39b3ba1?w=1600&q=80&auto=format&fit=crop');
-  background-size: cover;
-  background-position: center 40%;
+  background: #111c14;
+  border-bottom: 1px solid rgba(77, 120, 89, 0.20);
   display: flex;
   align-items: center;
   padding: 0 var(--space-xl);
   overflow: hidden;
   flex-shrink: 0;
   z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.40);
 }
 
 .header-inner {
@@ -131,7 +124,7 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-canopy);
+  color: var(--color-bark);
   line-height: 1;
 }
 
@@ -139,7 +132,7 @@ a:hover {
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 700;
-  color: var(--color-cream);
+  color: #e8efe0;
   line-height: 1.1;
   letter-spacing: 0.01em;
 }
@@ -148,9 +141,8 @@ a:hover {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 300;
-  color: var(--color-canopy-pale);
+  color: rgba(232, 239, 224, 0.50);
   letter-spacing: 0.01em;
-  opacity: 0.85;
   max-width: 500px;
   line-height: 1.4;
 }
