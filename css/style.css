@@ -6,31 +6,22 @@
 
 /* ── Design Tokens ───────────────────────────────────────── */
 :root {
-  /* Core palette — forest, stone, sky */
-  --color-forest:       #2d4a3e;
-  --color-forest-mid:   #3d6354;
-  --color-forest-light: #527a68;
-  --color-canopy:       #7aab90;
-  --color-canopy-pale:  #c2ddd2;
-  --color-stone:        #b5a48a;
-  --color-stone-light:  #e8e0d3;
-  --color-parchment:    #f5f0e8;
-  --color-cream:        #faf8f4;
-  --color-bark:         #6b4c32;
-  --color-sky:          #8fb8d0;
-  --color-sky-pale:     #d4eaf3;
-  --color-ink:          #1e2b24;
-  --color-ink-mid:      #3a4a42;
-  --color-ink-light:    #5c6e65;
-
-  /* Neighborhood accent colors */
-  --nbhd-1: #4e8b6e;   /* Glacier Pointe — forest green */
-  --nbhd-2: #6b9fb5;   /* Glacier Pointe Vista — sky blue */
-  --nbhd-3: #8a7fb5;   /* Trilogy — lavender sage */
-  --nbhd-4: #b57a4e;   /* Observation Ridge — warm clay */
-  --nbhd-5: #7aab5a;   /* Canyon View — meadow green */
-  --nbhd-6: #b5a04e;   /* Wesley — golden wheat */
-  --nbhd-7: #7a9e8a;   /* Core Neighborhood — sage */
+  /* ── Old Growth + Cedar Glow — dark default ─────────────── */
+  --color-forest:       #2d4a32;
+  --color-forest-mid:   #4d7859;
+  --color-forest-light: #6da07e;
+  --color-canopy:       #6da07e;
+  --color-canopy-pale:  #e8efe0;
+  --color-stone:        #3d6048;
+  --color-stone-light:  rgba(77, 120, 89, 0.22);
+  --color-parchment:    #111c14;   /* page / body background */
+  --color-cream:        #162019;   /* sidebar / card background */
+  --color-bark:         #a07848;   /* cedar accent */
+  --color-sky:          #6da07e;
+  --color-sky-pale:     #c8ddd0;
+  --color-ink:          #111c14;
+  --color-ink-mid:      #e8efe0;   /* primary text */
+  --color-ink-light:    #6da07e;   /* secondary / muted text */
 
   /* Spacing */
   --space-xs: 4px;
@@ -49,13 +40,17 @@
   --radius-lg: 16px;
 
   /* Shadows */
-  --shadow-card: 0 4px 20px rgba(30, 43, 36, 0.12), 0 1px 4px rgba(30, 43, 36, 0.08);
-  --shadow-lifted: 0 8px 32px rgba(30, 43, 36, 0.18), 0 2px 8px rgba(30, 43, 36, 0.1);
+  --shadow-card:   0 4px 20px rgba(0,0,0,0.40), 0 1px 4px rgba(0,0,0,0.30);
+  --shadow-lifted: 0 8px 32px rgba(0,0,0,0.50), 0 2px 8px rgba(0,0,0,0.40);
 
   /* Layout */
   --header-height: 80px;
   --footer-height: 60px;
-  --sidebar-width: 320px;
+  --sidebar-width: 300px;
+
+  /* Mobile drawer */
+  --drawer-peek:        60px;
+  --drawer-open-height: 55vh;
 }
 
 /* ── Reset & Base ────────────────────────────────────────── */
@@ -605,121 +600,12 @@ a:hover {
   border-width: 0;
 }
 
-/* ── Dark Mode ───────────────────────────────────────────── */
-[data-theme="dark"] {
-  --color-forest:       #1a3028;
-  --color-forest-mid:   #2a4a3a;
-  --color-forest-light: #3d6354;
-  --color-canopy:       #5a9070;
-  --color-canopy-pale:  #7aab90;
-  --color-stone:        #4a4540;
-  --color-stone-light:  #2e2e2a;
-  --color-parchment:    #141a17;
-  --color-cream:        #1c2420;
-  --color-bark:         #8a6a4a;
-  --color-ink:          #0e1612;
-  --color-ink-mid:      #c8d8cc;
-  --color-ink-light:    #8aaa96;
-  --shadow-card: 0 4px 20px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.3);
-  --shadow-lifted: 0 8px 32px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.4);
-}
-
-[data-theme="dark"] body {
-  color: var(--color-ink-mid);
-  background: var(--color-parchment);
-}
-
-[data-theme="dark"] a {
-  color: var(--color-canopy-pale);
-}
-[data-theme="dark"] a:hover {
-  color: var(--color-canopy);
-}
-
-[data-theme="dark"] .sidebar {
-  background: var(--color-cream);
-  border-right-color: var(--color-stone-light);
-}
-
-[data-theme="dark"] .sidebar::-webkit-scrollbar-thumb {
-  background: var(--color-stone);
-}
-
-[data-theme="dark"] .sidebar-prompt {
-  color: var(--color-ink-mid);
-}
-
-[data-theme="dark"] .legend-item:hover {
-  background: var(--color-stone-light);
-}
-
-[data-theme="dark"] .legend-label {
-  color: var(--color-ink-mid);
-}
-
-[data-theme="dark"] .legend-swatch {
-  border-color: rgba(255,255,255,0.15);
-}
-
-[data-theme="dark"] .back-btn {
-  color: var(--color-canopy);
-}
-[data-theme="dark"] .back-btn:hover {
-  color: var(--color-canopy-pale);
-}
-
-[data-theme="dark"] .detail-name {
-  color: var(--color-ink-mid);
-}
-
-[data-theme="dark"] .detail-type {
-  color: var(--color-ink-light);
-}
-
-[data-theme="dark"] .detail-description {
-  color: #a8c0b0;
-}
-
-[data-theme="dark"] .map-attribution-overlay {
-  background: rgba(14, 22, 18, 0.85);
-  color: var(--color-ink-light);
-}
-
-[data-theme="dark"] .leaflet-control-zoom a {
-  background: #1c2420 !important;
-  color: var(--color-canopy) !important;
-  border-color: var(--color-stone-light) !important;
-}
-[data-theme="dark"] .leaflet-control-zoom a:hover {
-  background: var(--color-stone-light) !important;
-}
-
-[data-theme="dark"] .site-header {
-  background-image:
-    linear-gradient(
-      rgba(10, 20, 14, 0.88),
-      rgba(8, 16, 11, 0.92)
-    ),
-    url('https://images.unsplash.com/photo-1542856391-010fb87dcfed?w=1600&q=80&auto=format&fit=crop');
-}
-
-/* Header text must stay bright in dark mode — --color-cream goes near-black */
-[data-theme="dark"] .brand-title {
-  color: #f0f7f2;
-}
-[data-theme="dark"] .brand-eyebrow {
-  color: #7aab90;
-}
-[data-theme="dark"] .header-tagline {
-  color: #a8c8b8;
-}
-
-/* Dark mode toggle button */
+/* ── Dark Mode Toggle Button ─────────────────────────────── */
 .dark-toggle {
   margin-left: auto;
   flex-shrink: 0;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(160, 120, 72, 0.12);
+  border: 1px solid rgba(160, 120, 72, 0.35);
   border-radius: 20px;
   cursor: pointer;
   padding: 5px 12px;
@@ -731,14 +617,14 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-canopy-pale);
+  color: var(--color-bark);
   transition: background 0.2s ease, border-color 0.2s ease;
   position: relative;
   z-index: 2;
 }
 .dark-toggle:hover {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.35);
+  background: rgba(160, 120, 72, 0.22);
+  border-color: rgba(160, 120, 72, 0.55);
 }
 .dark-toggle svg {
   width: 14px;
@@ -747,12 +633,5 @@ a:hover {
 }
 .dark-toggle .icon-moon { display: block; }
 .dark-toggle .icon-sun  { display: none;  }
-[data-theme="dark"] .dark-toggle .icon-moon { display: none;  }
-[data-theme="dark"] .dark-toggle .icon-sun  { display: block; }
-
-/* Tooltip overrides for dark mode — flip to light pill so labels are readable on dark tiles */
-[data-theme="dark"] .nbhd-tooltip {
-  background: rgba(230, 245, 236, 0.92) !important;
-  color: #1a2e22 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
-}
+[data-theme="light"] .dark-toggle .icon-moon { display: none;  }
+[data-theme="light"] .dark-toggle .icon-sun  { display: block; }
