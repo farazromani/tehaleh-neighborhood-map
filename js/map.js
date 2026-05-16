@@ -120,12 +120,12 @@ const TILES = {
   light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }),
   dark:  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
 };
-TILES.light.addTo(map);
+TILES.dark.addTo(map);
 
 // ── Dark Mode ──────────────────────────────────────────────
 const html        = document.documentElement;
 const darkToggle  = document.getElementById('dark-toggle');
-let   isDark      = localStorage.getItem('tehaleh-theme') === 'dark';
+let   isDark      = localStorage.getItem('tehaleh-theme') !== 'light';
 
 function applyTheme(dark) {
   isDark = dark;
