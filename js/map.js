@@ -362,16 +362,16 @@ fetch('./data/neighborhoods.geojson')
 const tooltipStyle = document.createElement('style');
 tooltipStyle.textContent = `
   .nbhd-tooltip {
-    background: rgba(20, 35, 28, 0.72) !important;
+    background: rgba(17, 28, 20, 0.85) !important;
     border: none !important;
     border-radius: 4px !important;
-    color: #f5f0e8 !important;
+    color: #e8efe0 !important;
     font-family: 'Zilla Slab', Georgia, serif !important;
     font-size: 11px !important;
     font-weight: 600 !important;
     line-height: 1.3 !important;
     padding: 3px 8px !important;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.30) !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.50) !important;
     white-space: normal !important;
     max-width: 110px !important;
     text-align: center !important;
