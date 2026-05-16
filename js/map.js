@@ -115,35 +115,8 @@ const map = L.map('map', {
 // Position zoom control top-right (sidebar occupies left side)
 map.zoomControl.setPosition('topright');
 
-// ── Tile Layers ────────────────────────────────────────────
-const TILES = {
-  light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }),
-  dark:  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }),
-};
-TILES.dark.addTo(map);
-
-// ── Dark Mode ──────────────────────────────────────────────
-const html        = document.documentElement;
-const darkToggle  = document.getElementById('dark-toggle');
-let   isDark      = localStorage.getItem('tehaleh-theme') !== 'light';
-
-function applyTheme(dark) {
-  isDark = dark;
-  html.setAttribute('data-theme', dark ? 'dark' : 'light');
-  localStorage.setItem('tehaleh-theme', dark ? 'dark' : 'light');
-  if (dark) {
-    map.removeLayer(TILES.light);
-    TILES.dark.addTo(map);
-  } else {
-    map.removeLayer(TILES.dark);
-    TILES.light.addTo(map);
-  }
-}
-
-// Apply saved preference on load
-applyTheme(isDark);
-
-darkToggle.addEventListener('click', () => applyTheme(!isDark));
+// ── Tile Layer ─────────────────────────────────────────────
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
 // ── State ──────────────────────────────────────────────────
 let activeLayer  = null;
